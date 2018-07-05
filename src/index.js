@@ -9,7 +9,6 @@ class TimezonePicker extends React.Component {
     offset: PropTypes.oneOf(['GMT', 'UTC']),
     onChange: PropTypes.func.isRequired,
     className: PropTypes.string,
-    style: PropTypes.shape({}),
     inputProps: PropTypes.shape({
       onBlur: PropTypes.func,
       onFocus: PropTypes.func,
@@ -22,7 +21,6 @@ class TimezonePicker extends React.Component {
     value: '',
     offset: 'GMT',
     className: '',
-    style: {},
     inputProps: {},
   };
 
@@ -115,7 +113,7 @@ class TimezonePicker extends React.Component {
     const open = focus !== null;
 
     return (
-      <div className={this.props.className} style={this.props.style}>
+      <div className={this.props.className}>
         <input
           type="text"
           autoComplete="off"
@@ -145,59 +143,6 @@ class TimezonePicker extends React.Component {
             </li>
           ))}
         </ul>
-
-        <style jsx>
-          {`
-            div {
-              display: inline-block;
-              font: 13px sans-serif;
-              position: relative;
-            }
-            input {
-              width: 100%;
-              padding: 9px 12px;
-              font: inherit;
-              box-sizing: border-box;
-              outline: 0;
-              background: #fff;
-              border: 1px solid #e6ebec;
-              border-radius: 2px;
-              color: #474747;
-            }
-            ul {
-              position: absolute;
-              top: 100%;
-              left: 0;
-              right: 0;
-              max-height: 200px;
-              overflow-y: auto;
-              margin: 0;
-              padding: 0;
-              border: 1px solid #e6ebec;
-              margin-top: -1px;
-              border-radius: 0 0 3px 3px;
-              display: none;
-            }
-            button {
-              color: #444;
-              padding: 5px 12px;
-              cursor: pointer;
-              outline: none;
-              display: block;
-              border: 0;
-              width: 100%;
-              text-align: left;
-              border-radius: 0;
-              font: inherit;
-            }
-            button.focus {
-              background: #f0f0f0;
-            }
-            ul.open {
-              display: block;
-            }
-          `}
-        </style>
       </div>
     );
   }
